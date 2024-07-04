@@ -40,7 +40,7 @@ public class StaticFieldClearer
             var defaultValue = GetDefaultValue(fieldInfo.FieldType);
             fieldInfo.SetValue(null, defaultValue);
 
-            Debug.Log($"Cleared field '{fieldInfo.Name}' in type '{fieldInfo.DeclaringType.Name}' to default value. Message: {fieldInfo.GetCustomAttribute<ClearOnLoadAttribute>().Message}");
+            Debug.Log($"Cleared field '{fieldInfo.Name}' in type '{fieldInfo.DeclaringType.Name}' to default value. {fieldInfo.GetCustomAttribute<ClearOnLoadAttribute>().Message}");
         }
     }
 
