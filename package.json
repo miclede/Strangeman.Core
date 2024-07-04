@@ -1,0 +1,13 @@
+{
+    "name": "com.strangeman.utils",
+    "version": "1.0.0",
+    "displayName": "Strangeman",
+    "description": "This is an example package",
+    "documentationUrl": "miclede.github.io/documentation",
+    "author": {
+      "name": "Michael L'Estrange",
+      "email": "michael@strangeman.games",
+      "url": "https://github.com/miclede"
+    }
+  }
+  

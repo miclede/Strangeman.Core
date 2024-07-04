@@ -1,0 +1,18 @@
+{
+    "name": "Strangeman.Editor",
+    "rootNamespace": "Strangeman.Editor",
+    "references": [
+        "GUID:a5358283307d1a149b9f3266af67608d"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
