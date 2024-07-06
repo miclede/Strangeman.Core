@@ -1,6 +1,6 @@
 {
     "name": "com.strangeman.utils",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": [
       "extension",
       "attribute",
@@ -8,9 +8,9 @@
       "design-pattern"
     ],
     "category": "project dependency",
-    "displayName": "Strangeman",
-    "description": "This package primarily provides dependencies to the Strangeman Helper packages.",
-    "documentationUrl": "miclede.github.io/documentation",
+    "displayName": "Strangeman Utils",
+    "description": "Strangeman.Utils: this package primarily provides dependencies to the Strangeman Helper packages.",
+    "documentationUrl": "Coming Soon",
     "author": {
       "name": "Michael L'Estrange",
       "email": "michael@strangeman.games",

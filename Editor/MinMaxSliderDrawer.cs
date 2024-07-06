@@ -28,7 +28,7 @@ namespace Strangeman.Editor
             SerializedProperty minValueProperty = property.FindPropertyRelative (nameof(MinMaxSliderValue.MinSliderValue));
             SerializedProperty maxValueProperty = property.FindPropertyRelative(nameof(MinMaxSliderValue.MaxSliderValue));
 
-            if (minValueProperty == null || maxValueProperty == null)
+            if (minValueProperty is null || maxValueProperty is null)
             {
                 EditorGUI.LabelField(position, label.text, "Could not find MinValue or MaxValue properties.");
                 Debug.LogError($"MinMaxSlider: Could not find minValue or maxValue properties on {property.displayName}");

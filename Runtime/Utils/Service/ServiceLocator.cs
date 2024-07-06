@@ -56,7 +56,7 @@ namespace Strangeman.Utils.Service
 
             try
             {
-                toFind = config == LocatorConfiguration.Global ? Global : toFind.GetInParent(component.gameObject, out toFind) ? toFind : null;
+                toFind = config is LocatorConfiguration.Global ? Global : toFind.GetInParent(component.gameObject, out toFind) ? toFind : null;
             }
             catch (Exception ex)
             {

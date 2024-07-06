@@ -13,7 +13,19 @@ namespace Strangeman.Utils.Extensions
         /// <returns>True if the component is null; otherwise, false.</returns>
         public static bool IsNull<T>(this T component) where T : Component
         {
-            return component == null;
+            return component is null;
+        }
+
+        /// <summary>
+        /// Extension method that returns the given component or null if the component is null.
+        /// In Unity this allows for null propagation ie. Component.OrNull?.variable ?? default
+        /// </summary>
+        /// <typeparam name="T">The type of the component, must be a subtype of UnityEngine.Component.</typeparam>
+        /// <param name="component">The component to check.</param>
+        /// <returns>The component if it is not null; otherwise, null.</returns>
+        public static T OrNull<T> (this T component) where T : Component
+        {
+            return component ? component : null;
         }
 
         /// <summary>
@@ -21,6 +33,7 @@ namespace Strangeman.Utils.Extensions
         /// If the specified <paramref name="component"/> is not null, it returns the <paramref name="component"/>.
         /// If the <paramref name="component"/> is null, it attempts to retrieve a component of type <typeparamref name="T"/> from the <paramref name="targetObject"/>.
         /// If no component of type <typeparamref name="T"/> is found on the <paramref name="targetObject"/>, it returns null.
+        /// In Unity this allows for null propagation ie. Component.OrNull?.variable ?? default
         /// </summary>
         /// <typeparam name="T">The type of component to retrieve.</typeparam>
         /// <param name="component">The initial component to check.</param>
@@ -29,12 +42,12 @@ namespace Strangeman.Utils.Extensions
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="targetObject"/> is null.</exception>
         public static T GetOrNull<T> (this T component, GameObject targetObject) where T : Component
         {
-            if (targetObject == null)
+            if (targetObject is null)
             {
                 throw new ArgumentNullException(nameof(targetObject), "Target object cannot be null.");
             }
 
-            var result = component ?? targetObject.GetComponent<T>();
+            var result = component ? component : targetObject.GetComponent<T>();
 
             return result ?? null;
         }
@@ -49,9 +62,9 @@ namespace Strangeman.Utils.Extensions
         /// <returns>True if the component was successfully retrieved or initialized; otherwise, false.</returns>
         public static bool Get<T>(this T component, GameObject targetObject, out T result) where T : Component
         {
-            result = component ?? targetObject.GetComponent<T>();
+            result = component ? component : targetObject.GetComponent<T>();
 
-            if (result == null)
+            if (result is null)
             {
                 Debug.LogError($"Component.GetOrReturn: Component of type {typeof(T)} not found in parent hierarchy of {targetObject.gameObject.name}");
                 return false;
@@ -70,9 +83,9 @@ namespace Strangeman.Utils.Extensions
         /// <returns>True if the component was successfully retrieved or initialized; otherwise, false.</returns>
         public static bool GetInParent<T>(this T component, GameObject childObject, out T result) where T : Component
         {
-            result = component ?? childObject.GetComponentInParent<T>();
+            result = component ? component : childObject.GetComponentInParent<T>();
 
-            if (result == null)
+            if (result is null)
             {
                 Debug.LogError($"Component.GetOrReturnInParent: Component of type {typeof(T)} not found in parent hierarchy of {childObject.gameObject.name}");
                 return false;
@@ -93,11 +106,11 @@ namespace Strangeman.Utils.Extensions
         {
             addedComponent = component ?? targetObject.GetComponent<T>();
 
-            if (addedComponent == null)
+            if (addedComponent is null)
             {
                 addedComponent = targetObject.gameObject.AddComponent<T>();
 
-                if (addedComponent == null)
+                if (addedComponent is null)
                 {
                     Debug.LogError($"Component.GetOrAdd: Failed to add component of type {typeof(T)} to {targetObject.gameObject.name}");
                     return false;
