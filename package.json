@@ -1,13 +1,13 @@
 {
     "name": "com.strangeman.utils",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "keywords": [
       "extension",
       "attribute",
       "editor",
       "design-pattern"
     ],
-    "category": "project dependency",
+    "category": "project dependency, utils",
     "displayName": "Strangeman Utils",
     "description": "Strangeman.Utils: this package primarily provides dependencies to the Strangeman Helper packages.",
     "documentationUrl": "Coming Soon",

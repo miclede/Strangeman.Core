@@ -9,3 +9,8 @@
 - Added OrNull to ComponentExtensions
 - Removed null coalescing operator from ComponentExtensions when attempting to grab initial Component, replaced with ternary conditional operators
 - Components using ComponentExtensions can now use null coalescing for gameobjects, see documentation for details
+
+## [1.1.0] - 2024-08-03
+## Feature Addition: SceneField
+- SceneField that relates a scene asset to it's name via an implicit operator
+- Added SceneFieldPropertyDrawer that allows for scene drag and drop dependency injection via the inspector
