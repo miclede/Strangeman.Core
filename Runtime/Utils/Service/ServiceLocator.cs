@@ -105,7 +105,7 @@ namespace Strangeman.Utils.Service
         /// <typeparam name="T">The type of service to retrieve.</typeparam>
         /// <param name="service">The output parameter to hold the retrieved service instance.</param>
         /// <returns>The current ServiceLocator instance for method chaining.</returns>
-        public ServiceLocator GetAny<T>(out T service) where T : class
+        public ServiceLocator GetOut<T>(out T service) where T : class
         {
             try
             {

@@ -14,3 +14,8 @@
 ## Feature Addition: SceneField
 - SceneField that relates a scene asset to it's name via an implicit operator
 - Added SceneFieldPropertyDrawer that allows for scene drag and drop dependency injection via the inspector
+
+## [1.2.1] - 2024-08-05
+## Feature Addition: MonoBehaviour Extensions
+- Updated package organization name
+- Added some simple extensions for MonoBehaviour
