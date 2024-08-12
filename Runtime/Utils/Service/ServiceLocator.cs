@@ -76,12 +76,12 @@ namespace Strangeman.Utils.Service
                 if (_global != null) return _global;
                 if (FindFirstObjectByType<ServiceLocatorGlobalBootstrapper>() is { } found)
                 {
-                    found.InitializeIfNeeded();
+                    found.Initialize();
                     return _global;
                 }
 
                 var container = new GameObject(k_globalServiceLocatorName, typeof(ServiceLocator));
-                container.AddComponent<ServiceLocatorGlobalBootstrapper>().InitializeIfNeeded();
+                container.AddComponent<ServiceLocatorGlobalBootstrapper>().Initialize();
 
                 return _global;
             }

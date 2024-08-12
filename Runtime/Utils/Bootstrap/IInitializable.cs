@@ -1,4 +1,6 @@
-﻿namespace Strangeman.Utils
+﻿using UnityEngine;
+
+namespace Strangeman.Utils
 {
     /// <summary>
     /// Interface for objects that require bootstrapping functionality.
@@ -9,6 +11,6 @@
         /// Ensures that the object is initialized or configured as needed.
         /// Implementing classes should perform any necessary initialization logic inside this method.
         /// </summary>
-        void InitializeIfNeeded();
+        void Initialize(object arg0 = null);
     }
 }

@@ -19,3 +19,12 @@
 ## Feature Addition: MonoBehaviour Extensions
 - Updated package organization name
 - Added some simple extensions for MonoBehaviour
+
+## [2.0.0] - 2024-08-12
+## Feature Addition and Update: Extensions & More
+- Rewrite of IInitializable for single parameter
+- Added BiDictionary support
+- Added Visitor pattern simple implementation
+- Added Validation strategy
+- Added Builder pattern with reflection
+- Added Type extension for Builder reflection
