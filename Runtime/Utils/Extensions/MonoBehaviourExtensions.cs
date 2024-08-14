@@ -11,14 +11,12 @@ namespace Strangeman.Utils.Extensions
         /// <typeparam name="T">The type of MonoBehaviour to instantiate.</typeparam>
         /// <param name="obj">The original MonoBehaviour to instantiate.</param>
         /// <param name="result">The instantiated MonoBehaviour.</param>
-        /// <param name="position">The position to place the instantiated MonoBehaviour. Defaults to the original position.</param>
-        /// <param name="rotation">The rotation to apply to the instantiated MonoBehaviour. Defaults to the original rotation.</param>
-        /// <param name="parent">The parent Transform to set for the instantiated MonoBehaviour. Defaults to no parent.</param>
         /// <returns>True if the MonoBehaviour was successfully instantiated and retrieved; otherwise, false.</returns>
         public static bool InstantiateMono<T>(this T obj, out T result) where T : MonoBehaviour
         {
             T sobj = default;
 
+            // Check if the original MonoBehaviour is null
             if (obj is null)
             {
                 Debug.LogError("InstantiateMono: The original MonoBehaviour is null");
@@ -26,8 +24,10 @@ namespace Strangeman.Utils.Extensions
                 return false;
             }
 
+            // Instantiate the GameObject associated with the MonoBehaviour
             var iobj = Object.Instantiate(obj.gameObject);
 
+            // Check if the GameObject was successfully instantiated
             if (iobj is null)
             {
                 Debug.LogError("InstantiateMono: Failed to instantiate the GameObject.");
@@ -35,13 +35,14 @@ namespace Strangeman.Utils.Extensions
                 return false;
             }
 
+            // Retrieve the MonoBehaviour from the instantiated GameObject
             if (!sobj.Get(iobj, out result))
             {
                 Debug.LogError($"InstantiateMono: The instantiated GameObject does not have component of type {typeof(T)}");
                 Object.Destroy(iobj);
                 return false;
             }
-                
+
             return true;
         }
 

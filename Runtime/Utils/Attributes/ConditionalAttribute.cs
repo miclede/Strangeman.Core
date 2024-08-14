@@ -4,7 +4,7 @@ using System;
 namespace Strangeman.Utils.Attributes
 {
     /// <summary>
-    /// Attribute to conditionally show or hide fields in the Unity inspector based on a boolean condition.
+    /// Attribute that conditionally shows or hides fields in the Unity Inspector based on a boolean condition.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class ConditionalAttribute : PropertyAttribute
@@ -13,14 +13,14 @@ namespace Strangeman.Utils.Attributes
         public string ConditionFunctionName;
 
         /// <summary>
-        /// Initializes a new instance of the ConditionalAttribute with specified show flag and condition function name.
+        /// Initializes a new instance of the <see cref="ConditionalAttribute"/> class.
         /// </summary>
-        /// <param name="show">Boolean flag indicating whether the field should be shown.</param>
-        /// <param name="conditionFunctionName">Name of the function that returns a boolean determining the field's visibility.</param>
+        /// <param name="show">Whether the field should be shown (true) or hidden (false).</param>
+        /// <param name="conditionFunctionName">Name of the method that returns the visibility condition.</param>
         public ConditionalAttribute(bool show, string conditionFunctionName)
         {
-            this.Show = show;
-            this.ConditionFunctionName = conditionFunctionName;
+            Show = show;
+            ConditionFunctionName = conditionFunctionName;
         }
     }
 }

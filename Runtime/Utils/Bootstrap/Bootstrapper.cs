@@ -7,9 +7,9 @@ namespace Strangeman.Utils
     /// Abstract base class for bootstrapping a specific type of Component in Unity.
     /// Provides thread-safe mechanisms to ensure the Bootstrap process is executed exactly once.
     /// </summary>
-    /// <typeparam name="T">The type of Component to Bootstrap</typeparam>
+    /// <typeparam name="T">The type of Component to Bootstrap.</typeparam>
     [DisallowMultipleComponent]
-    public abstract class Bootstrapper<T> :  MonoBehaviour, IInitializable where T : Component
+    public abstract class Bootstrapper<T> : MonoBehaviour, IInitializable where T : Component
     {
         T _component;
         bool _bootstrapped;
@@ -26,13 +26,11 @@ namespace Strangeman.Utils
 
         /// <summary>
         /// Ensures that the Bootstrap process for the specified type T has been executed once.
-        /// If not already bootstrapped, locks the operation to prevent concurrent execution,
-        /// logs the start of the bootstrap process, and calls the Bootstrap method.
-        /// Handles exceptions during bootstrapping by logging errors and rethrowing exceptions.
+        /// Locks the operation to prevent concurrent execution, logs the start of the process, 
+        /// and calls the Bootstrap method. Handles exceptions by logging errors and rethrowing exceptions.
         /// </summary>
         /// <remarks>
-        /// This method is thread-safe and ensures that the Bootstrap method is called exactly once,
-        /// even if accessed concurrently by multiple threads.
+        /// Thread-safe method ensuring the Bootstrap method is called exactly once, even in concurrent scenarios.
         /// </remarks>
         public void Initialize(object arg0 = null)
         {
@@ -56,6 +54,9 @@ namespace Strangeman.Utils
             }
         }
 
+        /// <summary>
+        /// Abstract method to be implemented by derived classes to define the bootstrap process.
+        /// </summary>
         protected abstract void Bootstrap();
     }
 }

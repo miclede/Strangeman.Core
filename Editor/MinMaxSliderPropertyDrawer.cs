@@ -5,17 +5,26 @@ using Strangeman.Utils.Attributes;
 
 namespace Strangeman.Editor
 {
+    /// <summary>
+    /// Custom property drawer for MinMaxSliderAttribute, providing a slider with min and max value fields in the Unity Inspector.
+    /// </summary>
     [CustomPropertyDrawer(typeof(MinMaxSliderAttribute))]
-    public class MinMaxSliderDrawer : PropertyDrawer
+    public class MinMaxSliderPropertyDrawer : PropertyDrawer
     {
-        private const float LabelWidth = 50f;
-        private const float FieldSpacing = 5f;
+        private const float LabelWidth = 50f; // Width of the min and max value labels.
+        private const float FieldSpacing = 5f; // Spacing between the slider and the labels.
 
+        /// <summary>
+        /// Draws the min-max slider and associated fields in the Inspector.
+        /// </summary>
+        /// <param name="position">The position and size of the property field in the Inspector.</param>
+        /// <param name="property">The serialized property to draw.</param>
+        /// <param name="label">The label to display next to the property field.</param>
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             MinMaxSliderAttribute range = (MinMaxSliderAttribute)attribute;
 
-            // Ensure the property is of the expected type
+            // Ensure the property is of the correct type.
             if (property.type != nameof(MinMaxSliderValue))
             {
                 EditorGUI.LabelField(position, label.text, "Use MinMaxSlider with MinMaxSliderValue.");
@@ -24,11 +33,11 @@ namespace Strangeman.Editor
 
             EditorGUI.BeginProperty(position, label, property);
 
-            // Get the min and max values from the property
-            SerializedProperty minValueProperty = property.FindPropertyRelative (nameof(MinMaxSliderValue.MinSliderValue));
+            // Retrieve the min and max value properties.
+            SerializedProperty minValueProperty = property.FindPropertyRelative(nameof(MinMaxSliderValue.MinSliderValue));
             SerializedProperty maxValueProperty = property.FindPropertyRelative(nameof(MinMaxSliderValue.MaxSliderValue));
 
-            if (minValueProperty is null || maxValueProperty is null)
+            if (minValueProperty == null || maxValueProperty == null)
             {
                 EditorGUI.LabelField(position, label.text, "Could not find MinValue or MaxValue properties.");
                 Debug.LogError($"MinMaxSlider: Could not find minValue or maxValue properties on {property.displayName}");
@@ -38,29 +47,23 @@ namespace Strangeman.Editor
             float minValue = minValueProperty.floatValue;
             float maxValue = maxValueProperty.floatValue;
 
-            // Draw the label
+            // Define rects for the slider and value fields.
             position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
-
-            // Calculate rects
             var minLabelRect = new Rect(position.x, position.y, LabelWidth, position.height);
             var maxLabelRect = new Rect(position.x + position.width - LabelWidth, position.y, LabelWidth, position.height);
             var sliderRect = new Rect(position.x + LabelWidth + FieldSpacing, position.y, position.width - 2 * (LabelWidth + FieldSpacing), position.height);
 
-            // Draw the slider
+            // Draw the slider and value fields.
             EditorGUI.MinMaxSlider(sliderRect, ref minValue, ref maxValue, range.MinSliderValue, range.MaxSliderValue);
-
-            // Draw the min and max value fields
             minValue = EditorGUI.FloatField(minLabelRect, GUIContent.none, minValue);
             maxValue = EditorGUI.FloatField(maxLabelRect, GUIContent.none, maxValue);
 
-            // Ensure minValue is not greater than maxValue
+            // Clamp values to ensure minValue is not greater than maxValue and within the specified range.
             if (minValue > maxValue) minValue = maxValue;
-
-            // Ensure values are within range
             minValue = Mathf.Clamp(minValue, range.MinSliderValue, range.MaxSliderValue);
             maxValue = Mathf.Clamp(maxValue, range.MinSliderValue, range.MaxSliderValue);
 
-            // Set the new values
+            // Update the serialized properties with the new values.
             minValueProperty.floatValue = minValue;
             maxValueProperty.floatValue = maxValue;
 

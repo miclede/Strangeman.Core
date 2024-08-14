@@ -1,24 +1,8 @@
-## [1.0.0] - 2024-07-04
-### First Release
-- Has Services, Bootstrapping, Component Extensions, Attributes for Runtime
-- Contains Drawers for: ConditionalProperty & MinMaxSlider for Editor
-- Contains Subsystem Registration for ClearFieldsWithAttribute (ClearOnLoad) - for statics
-
-## [1.0.1] - 2024-07-05
-## Hotfix
-- Added OrNull to ComponentExtensions
-- Removed null coalescing operator from ComponentExtensions when attempting to grab initial Component, replaced with ternary conditional operators
-- Components using ComponentExtensions can now use null coalescing for gameobjects, see documentation for details
-
-## [1.1.0] - 2024-08-03
-## Feature Addition: SceneField
-- SceneField that relates a scene asset to it's name via an implicit operator
-- Added SceneFieldPropertyDrawer that allows for scene drag and drop dependency injection via the inspector
-
-## [1.2.1] - 2024-08-05
-## Feature Addition: MonoBehaviour Extensions
-- Updated package organization name
-- Added some simple extensions for MonoBehaviour
+## [2.1.1] - 2024-08-14
+## Feature Addition: Application Interactor
+- Added Application Interactor to assit with interfacing with Unity's Application class
+- Changed and documentation across package
+- Added documentation url to package
 
 ## [2.0.0] - 2024-08-12
 ## Feature Addition and Update: Extensions & More
@@ -28,3 +12,25 @@
 - Added Validation strategy
 - Added Builder pattern with reflection
 - Added Type extension for Builder reflection
+
+## [1.2.1] - 2024-08-05
+## Feature Addition: MonoBehaviour Extensions
+- Updated package organization name
+- Added some simple extensions for MonoBehaviour
+
+## [1.1.0] - 2024-08-03
+## Feature Addition: SceneField
+- SceneField that relates a scene asset to it's name via an implicit operator
+- Added SceneFieldPropertyDrawer that allows for scene drag and drop dependency injection via the inspector
+
+## [1.0.1] - 2024-07-05
+## Hotfix
+- Added OrNull to ComponentExtensions
+- Removed null coalescing operator from ComponentExtensions when attempting to grab initial Component, replaced with ternary conditional operators
+- Components using ComponentExtensions can now use null coalescing for gameobjects, see documentation for details
+
+## [1.0.0] - 2024-07-04
+### First Release
+- Has Services, Bootstrapping, Component Extensions, Attributes for Runtime
+- Contains Drawers for: ConditionalProperty & MinMaxSlider for Editor
+- Contains Subsystem Registration for ClearFieldsWithAttribute (ClearOnLoad) - for statics
