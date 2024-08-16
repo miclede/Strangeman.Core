@@ -6,7 +6,7 @@ Welcome to the Strangeman Utils package wiki! This package provides a collection
 
 This provides dependencies to the Strangeman helper packages.
 
-Feel free to browse the online documentation and create your own projects using this as a resource. While it is not required to state that a product / project is using this repo, I would like to shout-out those that do.
+Feel free to create your own projects using this as a resource. While it is not required to state that a product / project is using this repo, I would like to shout-out those that do.
 
 ## Installation
 Add to Unity from Package Manager:
@@ -16,7 +16,7 @@ https://github.com/miclede/Strangeman.Utils.git
 
 From manifest.json:
 ```
-"com.strangeman.utils": "https://github.com/miclede/Strangeman.Utils.git"
+"com.strangemangames.utils": "https://github.com/miclede/Strangeman.Utils.git"
 ```
 
 <!------>

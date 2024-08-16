@@ -32,7 +32,7 @@ namespace Strangeman.Utils
         /// <remarks>
         /// Thread-safe method ensuring the Bootstrap method is called exactly once, even in concurrent scenarios.
         /// </remarks>
-        public void Initialize(object arg0 = null)
+        public void Initialize()
         {
             if (_bootstrapped) return;
 

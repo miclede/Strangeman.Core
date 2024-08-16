@@ -1,6 +1,6 @@
 {
     "name": "com.strangeman.utils.editor",
-    "rootNamespace": "Strangeman.Editor",
+    "rootNamespace": "Strangeman.Utils.Editor",
     "references": [
         "GUID:a5358283307d1a149b9f3266af67608d"
     ],

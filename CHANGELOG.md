@@ -1,3 +1,9 @@
+## [2.1.2] - 2024-08-15
+## Feature Update: Initialize
+- Reverting back to old Initialize interface
+- Added additional Initialize interface: InitializeWith
+- Note: I do not like updating interfaces like this, contracts should not have to be edited, in the future I will be adding new interfaces to expand functionality over editing old ones to increase theirs
+
 ## [2.1.1] - 2024-08-14
 ## Feature Addition: Application Interactor
 - Added Application Interactor to assit with interfacing with Unity's Application class
