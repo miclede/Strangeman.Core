@@ -1,6 +1,6 @@
 {
-    "name": "com.strangemangames.utils",
-    "version": "2.1.2",
+    "name": "com.strangeman.core",
+    "version": "2.2.2",
     "keywords": [
       "extension",
       "attribute",
@@ -8,12 +8,12 @@
       "design-pattern",
       "tool-support"
     ],
-    "category": "project dependency, utils",
-    "displayName": "Strangeman Utils",
-    "description": "Strangeman.Utils: this package primarily provides dependencies to the Strangeman Helper packages.",
-    "documentationUrl": "https://github.com/miclede/Strangeman.Utils/wiki",
+    "category": "project dependency, utilities",
+    "displayName": "Strangeman Core",
+    "description": "Strangeman.Core: this package primarily provides dependencies to the Strangeman Helper packages.",
+    "documentationUrl": "https://github.com/miclede/Strangeman.Core/wiki",
     "author": {
-      "name": "Michael L'Estrange",
+      "name": "Strangeman Games",
       "email": "michael@strangeman.games",
       "url": "https://github.com/miclede"
     }

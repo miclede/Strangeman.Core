@@ -1,8 +1,12 @@
 {
-    "name": "com.strangeman.utils",
-    "rootNamespace": "Strangeman.Utils",
-    "references": [],
-    "includePlatforms": [],
+    "name": "com.strangeman.core.editor",
+    "rootNamespace": "Strangeman.Utils.Editor",
+    "references": [
+        "GUID:a5358283307d1a149b9f3266af67608d"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

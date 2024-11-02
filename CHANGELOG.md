@@ -1,3 +1,8 @@
+## [2.2.2] 2024-11-01
+### Organization Update: Packaging & Folders
+- Updating Package information and folder structure
+- Better integration with other strangeman packages
+
 ## [2.1.2] - 2024-08-15
 ## Feature Update: Initialize
 - Reverting back to old Initialize interface
