@@ -8,7 +8,7 @@ namespace Strangeman.Utils.Service
     /// <summary>
     /// Enum representing the configuration options for the ServiceLocator.
     /// </summary>
-    public enum LocatorConfiguration { Local, Global }
+    public enum LocatorConfiguration { Local, External, Global }
 
     /// <summary>
     /// A MonoBehaviour-based service locator that provides a mechanism to register and retrieve services.
@@ -56,7 +56,21 @@ namespace Strangeman.Utils.Service
 
             try
             {
-                toFind = config is LocatorConfiguration.Global ? Global : toFind.GetInParent(component.gameObject, out toFind) ? toFind : null;
+                switch (config)
+                {
+                    case LocatorConfiguration.Global:
+                        toFind = Global;
+                        break;
+                    case LocatorConfiguration.Local:
+                        if (!toFind.GetInParent(component.gameObject, out toFind))
+                        {
+                            toFind = null;
+                        }
+                        break;
+                    case LocatorConfiguration.External:
+                        toFind = toFind.GetOrNull(component.gameObject);
+                        break;
+                }
             }
             catch (Exception ex)
             {
@@ -98,6 +112,20 @@ namespace Strangeman.Utils.Service
             _services.Register(service);
             return this;
         }
+
+        public ServiceLocator Unregister<T>()
+        {
+            _services.Unregister<T>();
+            return this;
+        }
+
+        public bool Contains<T>()
+        {
+            return _services.ContainsService<T>();
+        }
+
+        public void ClearAllServices() => _services.Clear();
+        public int ServiceCount => _services.Count;
 
         /// <summary>
         /// Retrieves a registered service of type <typeparamref name="T"/>.

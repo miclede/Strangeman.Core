@@ -1,3 +1,8 @@
+## [2.2.3] 2025-06-06
+### Service Locator Update: Configuration and Registration
+- Updates for functional tunneling into service manager from service locator
+- Added External LocatorConfiguration for getting a service locator on an exact component's gameobject
+
 ## [2.2.2] 2024-11-01
 ### Organization Update: Packaging & Folders
 - Updating Package information and folder structure
