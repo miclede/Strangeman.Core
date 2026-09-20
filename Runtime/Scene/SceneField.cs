@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Strangeman.Utils
+namespace Strangeman.Utils.Scene
 {
     /// <summary>
     /// Encapsulates a reference to a Unity scene, storing both the scene asset and its name.

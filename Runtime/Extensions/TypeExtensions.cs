@@ -8,9 +8,7 @@ namespace Strangeman.Utils.Extensions
         /// <summary>
         /// Retrieves the type of a member based on the MemberInfo provided.
         /// </summary>
-        /// <param name="memberInfo">The MemberInfo instance representing the member.</param>
         /// <returns>The type of the member (e.g., field type, property type, return type of method, event handler type).</returns>
-        /// <exception cref="ArgumentException">Thrown if the MemberInfo type is unsupported.</exception>
         public static Type GetMemberInfoType(this MemberInfo memberInfo)
         {
             return memberInfo switch

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Strangeman.Utils.Bootstrap;
+using UnityEngine;
 
 namespace Strangeman.Utils.Service
 {

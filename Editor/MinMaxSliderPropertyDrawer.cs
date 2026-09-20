@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using Strangeman.Utils;
 using UnityEditor;
 using UnityEngine;
 using Strangeman.Utils.Attributes;
@@ -13,19 +14,13 @@ namespace Strangeman.Editor
     {
         private const float LabelWidth = 50f; // Width of the min and max value labels.
         private const float FieldSpacing = 5f; // Spacing between the slider and the labels.
-
-        /// <summary>
-        /// Draws the min-max slider and associated fields in the Inspector.
-        /// </summary>
-        /// <param name="position">The position and size of the property field in the Inspector.</param>
-        /// <param name="property">The serialized property to draw.</param>
-        /// <param name="label">The label to display next to the property field.</param>
+        
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             MinMaxSliderAttribute range = (MinMaxSliderAttribute)attribute;
 
             // Ensure the property is of the correct type.
-            if (property.type != nameof(MinMaxSliderValue))
+            if (property.type != nameof(MinMaxValue))
             {
                 EditorGUI.LabelField(position, label.text, "Use MinMaxSlider with MinMaxSliderValue.");
                 return;
@@ -34,8 +29,8 @@ namespace Strangeman.Editor
             EditorGUI.BeginProperty(position, label, property);
 
             // Retrieve the min and max value properties.
-            SerializedProperty minValueProperty = property.FindPropertyRelative(nameof(MinMaxSliderValue.MinSliderValue));
-            SerializedProperty maxValueProperty = property.FindPropertyRelative(nameof(MinMaxSliderValue.MaxSliderValue));
+            SerializedProperty minValueProperty = property.FindPropertyRelative(nameof(MinMaxValue.minValue));
+            SerializedProperty maxValueProperty = property.FindPropertyRelative(nameof(MinMaxValue.maxValue));
 
             if (minValueProperty == null || maxValueProperty == null)
             {

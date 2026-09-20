@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEditor;
 using Strangeman.Utils;
+using Strangeman.Utils.Scene;
 
 namespace Strangeman.Editor
 {

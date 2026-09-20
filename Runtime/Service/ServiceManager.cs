@@ -21,9 +21,7 @@ namespace Strangeman.Utils.Service
         /// <summary>
         /// Retrieves a registered service of type T.
         /// </summary>
-        /// <typeparam name="T">The type of service to retrieve.</typeparam>
         /// <returns>The registered service.</returns>
-        /// <exception cref="ArgumentException">Thrown when no service of type T is registered.</exception>
         public T Get<T>() where T : class
         {
             Type serviceType = typeof(T);
@@ -39,9 +37,7 @@ namespace Strangeman.Utils.Service
         /// <summary>
         /// Retrieves a registered service of type T in a thread-safe manner.
         /// </summary>
-        /// <typeparam name="T">The type of service to retrieve.</typeparam>
         /// <returns>The registered service.</returns>
-        /// <exception cref="ArgumentException">Thrown when no service of type T is registered.</exception>
         public T GetThreadSafe<T>() where T : class
         {
             lock (_lock)
@@ -60,8 +56,6 @@ namespace Strangeman.Utils.Service
         /// <summary>
         /// Registers a service of type T.
         /// </summary>
-        /// <typeparam name="T">The type of service to register.</typeparam>
-        /// <param name="service">The instance of the service to register.</param>
         /// <returns>The ServiceManager instance for method chaining.</returns>
         public ServiceManager Register<T>(T service)
         {
@@ -82,8 +76,6 @@ namespace Strangeman.Utils.Service
         /// <summary>
         /// Registers a service of type T in a thread-safe manner.
         /// </summary>
-        /// <typeparam name="T">The type of service to register.</typeparam>
-        /// <param name="service">The instance of the service to register.</param>
         /// <returns>The ServiceManager instance for method chaining.</returns>
         public ServiceManager RegisterThreadSafe<T>(T service)
         {
@@ -107,7 +99,6 @@ namespace Strangeman.Utils.Service
         /// <summary>
         /// Unregisters a service of type T.
         /// </summary>
-        /// <typeparam name="T">The type of service to unregister.</typeparam>
         /// <returns>The ServiceManager instance for method chaining.</returns>
         public ServiceManager Unregister<T>()
         {
@@ -125,7 +116,6 @@ namespace Strangeman.Utils.Service
         /// <summary>
         /// Checks if a service of type T is registered.
         /// </summary>
-        /// <typeparam name="T">The type of service to check.</typeparam>
         /// <returns>True if a service of type T is registered; otherwise, false.</returns>
         public bool ContainsService<T>()
         {

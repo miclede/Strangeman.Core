@@ -8,8 +8,6 @@ namespace Strangeman.Utils.Extensions
         /// <summary>
         /// Checks if the component is null.
         /// </summary>
-        /// <typeparam name="T">The type of the component.</typeparam>
-        /// <param name="component">The component instance to check.</param>
         /// <returns>True if the component is null; otherwise, false.</returns>
         public static bool IsNull<T>(this T component) where T : Component
         {
@@ -20,8 +18,6 @@ namespace Strangeman.Utils.Extensions
         /// Returns the component if it is not null; otherwise, returns null.
         /// This allows for null propagation in Unity.
         /// </summary>
-        /// <typeparam name="T">The type of the component, must be a subtype of UnityEngine.Component.</typeparam>
-        /// <param name="component">The component to check.</param>
         /// <returns>The component if it is not null; otherwise, null.</returns>
         public static T OrNull<T>(this T component) where T : Component
         {
@@ -32,11 +28,7 @@ namespace Strangeman.Utils.Extensions
         /// Retrieves a component of type <typeparamref name="T"/> from the specified <paramref name="targetObject"/>.
         /// If the <paramref name="component"/> is not null, it returns the <paramref name="component"/>. Otherwise, it attempts to retrieve the component from the <paramref name="targetObject"/>.
         /// </summary>
-        /// <typeparam name="T">The type of component to retrieve.</typeparam>
-        /// <param name="component">The initial component to check.</param>
-        /// <param name="targetObject">The GameObject to search for the component if the initial component is null.</param>
         /// <returns>The retrieved component or null if no component is found.</returns>
-        /// <exception cref="ArgumentNullException">Thrown if <paramref name="targetObject"/> is null.</exception>
         public static T GetOrNull<T>(this T component, GameObject targetObject) where T : Component
         {
             if (targetObject is null)
@@ -51,10 +43,6 @@ namespace Strangeman.Utils.Extensions
         /// <summary>
         /// Checks if the component is null and initializes it using GetComponent<T>() if it is null.
         /// </summary>
-        /// <typeparam name="T">The type of the component.</typeparam>
-        /// <param name="component">The component instance to check and initialize.</param>
-        /// <param name="targetObject">The GameObject to find the component on if it is null.</param>
-        /// <param name="result">The initialized or retrieved component.</param>
         /// <returns>True if the component was successfully retrieved or initialized; otherwise, false.</returns>
         public static bool Get<T>(this T component, GameObject targetObject, out T result) where T : Component
         {
@@ -72,10 +60,6 @@ namespace Strangeman.Utils.Extensions
         /// <summary>
         /// Retrieves or initializes a component of type T by checking if it is null and using GetComponentInParent<T>() if needed.
         /// </summary>
-        /// <typeparam name="T">The type of the component.</typeparam>
-        /// <param name="component">The component instance to check and initialize.</param>
-        /// <param name="childObject">A child component used to search for the component in its parent hierarchy.</param>
-        /// <param name="result">The initialized or retrieved component.</param>
         /// <returns>True if the component was successfully retrieved or initialized; otherwise, false.</returns>
         public static bool GetInParent<T>(this T component, GameObject childObject, out T result) where T : Component
         {
@@ -93,10 +77,6 @@ namespace Strangeman.Utils.Extensions
         /// <summary>
         /// Gets or adds a component of type T to the GameObject associated with the target Component.
         /// </summary>
-        /// <typeparam name="T">The type of the component.</typeparam>
-        /// <param name="component">The component instance to check and initialize.</param>
-        /// <param name="targetObject">The Component instance whose GameObject is used to find or add the component.</param>
-        /// <param name="addedComponent">The initialized or retrieved component of type T.</param>
         /// <returns>True if the component was retrieved or added successfully; false if failed to retrieve or add.</returns>
         public static bool GetOrAdd<T>(this T component, GameObject targetObject, out T addedComponent) where T : Component
         {
@@ -120,8 +100,6 @@ namespace Strangeman.Utils.Extensions
         /// <summary>
         /// Checks if the component exists on the GameObject or its parents.
         /// </summary>
-        /// <typeparam name="T">The type of the component.</typeparam>
-        /// <param name="gameObject">The GameObject to which the component is attached.</param>
         /// <returns>True if the component exists on the GameObject or its parents; otherwise, false.</returns>
         public static bool HasComponentInParent<T>(this GameObject gameObject) where T : Component
         {

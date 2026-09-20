@@ -50,7 +50,6 @@ namespace Strangeman.Editor
         /// <summary>
         /// Gets the default value for a given type.
         /// </summary>
-        /// <param name="type">The type to get the default value for.</param>
         /// <returns>The default value of the type.</returns>
         private static object GetDefaultValue(Type type)
         {

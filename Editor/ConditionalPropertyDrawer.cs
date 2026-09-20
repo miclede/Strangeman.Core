@@ -15,9 +15,6 @@ namespace Strangeman.Editor
         /// <summary>
         /// Draws the property field in the Inspector if the condition specified by the ConditionalAttribute is met.
         /// </summary>
-        /// <param name="position">The position of the property field in the Inspector.</param>
-        /// <param name="property">The serialized property to draw.</param>
-        /// <param name="label">The label to display next to the property field.</param>
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             ConditionalAttribute conditionalAttribute = (ConditionalAttribute)attribute;
@@ -32,8 +29,6 @@ namespace Strangeman.Editor
         /// <summary>
         /// Returns the height of the property field in the Inspector based on the condition specified by the ConditionalAttribute.
         /// </summary>
-        /// <param name="property">The serialized property to measure.</param>
-        /// <param name="label">The label to display next to the property field.</param>
         /// <returns>The height of the property field, or 0 if it should not be displayed.</returns>
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
@@ -46,8 +41,6 @@ namespace Strangeman.Editor
         /// <summary>
         /// Determines if the property should be displayed based on the result of the specified condition method.
         /// </summary>
-        /// <param name="property">The serialized property being evaluated.</param>
-        /// <param name="conditionalAttribute">The ConditionalAttribute used to determine the display condition.</param>
         /// <returns>True if the property should be displayed; otherwise, false.</returns>
         private bool ShouldShowProperty(SerializedProperty property, ConditionalAttribute conditionalAttribute)
         {
