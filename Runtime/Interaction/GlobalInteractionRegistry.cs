@@ -4,7 +4,7 @@ using Strangeman.Utils.Service;
 using Strangeman.Utils.Visitor;
 using UnityEngine;
 
-namespace Strangeman.Core.Interaction
+namespace Strangeman.Utils.Interaction
 {
     public class GlobalInteractionRegistry : GlobalMonoService<GlobalInteractionRegistry>
     {

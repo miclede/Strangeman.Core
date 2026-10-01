@@ -138,7 +138,9 @@ namespace Strangeman.Utils.State
                 if (disposedPredicates.Add(transition.Predicate))
                     DisposePredicate(transition.Predicate);
             }
-
+            
+            CurrentState?.OnExit();
+            
             _pendingStates.Clear();
             _currentTransitions = EmptyTransitions;
             _transitions.Clear();

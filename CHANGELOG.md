@@ -1,3 +1,11 @@
+## \[2.4.0] 2026-10-01
+
+### Interaction Update
+
+* Interaction updates with generic for easy abstraction
+* 2d and 3d simple component classes for interaction registry
+* Able to produce custom interaction registries using new generic approach
+
 ## \[2.3.0] 2026-09-19
 
 ### New Features \& Restructuring

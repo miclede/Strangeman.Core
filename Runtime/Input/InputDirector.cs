@@ -18,20 +18,20 @@ namespace Strangeman.Utils.Input
         }
 
         [SerializeField] private List<InputMapHandler> inputMapHandlers;
-
-        private bool _isSetup;
+        
         public InputMapHandler ActiveHandler { get; private set; }
 
         public void SetupInputHandlers()
         {
-            if (_isSetup) return;
-
             foreach (var handler in inputMapHandlers)
             {
                 handler.Initialize(this);
             }
+        }
 
-            _isSetup = true;
+        public static void SetupHandlers()
+        {
+            Asset.SetupInputHandlers();
         }
 
         public void EnableHandler<T>() where T : InputMapHandler
